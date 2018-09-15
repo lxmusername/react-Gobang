@@ -51,8 +51,8 @@ export default class Game extends React.Component {
   
       const moves = history.map((step, move) => {
         const desc = move ?
-          'Go to move #' + move :
-          'Go to game start';
+          `已下${move}步棋`   :
+          '开始 PK';
         return (
           <li key={move}>
             <button onClick={() => this.jumpTo(move)}>{desc}</button>
@@ -62,9 +62,9 @@ export default class Game extends React.Component {
   
       let status;
       if (winner) {
-        status = "Winner: " + winner;
+        status = "获胜方 执棋子: " + winner;
       } else {
-        status = "Next player: " + (this.state.xIsNext ? "X" : "O");
+        status = "下一步: " + (this.state.xIsNext ? "X" : "O");
       }
   
       return (
